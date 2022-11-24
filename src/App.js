@@ -4,7 +4,7 @@ import React, { useState } from "react";
 function initWork() {
   const initlist = [
     {
-      name: "eun",
+      name: "en",
     },
   ];
   console.log("it is heavy work!");
@@ -14,8 +14,9 @@ function initWork() {
 function App() {
   const [name, setname] = useState("");
   //initWork를 콜백으로 호출하여서 첫 랜더링 시에만 작동하도록 하기
-  //그냥 함수를 넣게되면 state변경될때 마다 저 함수가 불리게 된다.
-  const [list, setlist] = useState(() => initWork());
+  //그냥 함수를 넣게되면 state변경될때 마다 저 함수가 불리게 된다. -> 함수를 넘겨주기만 해도 동일함.
+  // () => initWork()  -> initWork
+  const [list, setlist] = useState(initWork);
 
   const nameHandler = function (event) {
     setname(event.target.value);
